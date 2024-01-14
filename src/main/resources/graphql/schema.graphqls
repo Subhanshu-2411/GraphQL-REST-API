@@ -19,6 +19,7 @@ enum Team {
 type Mutation {
     create(name: String, team: Team): Player,
     update(id: ID, name: String, team: Team): Player,
+    delete(id: ID): Player
 }
 
 type Query {

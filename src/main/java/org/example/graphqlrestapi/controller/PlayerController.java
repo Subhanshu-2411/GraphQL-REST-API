@@ -3,16 +3,11 @@ package org.example.graphqlrestapi.controller;
 import org.example.graphqlrestapi.model.Player;
 import org.example.graphqlrestapi.model.Team;
 import org.example.graphqlrestapi.service.PlayerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class PlayerController {
@@ -41,6 +36,11 @@ public class PlayerController {
     @MutationMapping
     public Player update(@Argument Integer id, @Argument String name, @Argument Team team) {
         return playerService.update(id, name, team);
+    }
+
+    @MutationMapping
+    public Player delete(@Argument Integer id) {
+        return playerService.delete(id);
     }
 
 }
