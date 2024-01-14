@@ -16,6 +16,11 @@ enum Team {
     GT
 }
 
+type Mutation {
+    create(name: String, team: Team): Player,
+    update(id: ID, name: String, team: Team): Player,
+}
+
 type Query {
     findAll: [Player],
     findOne(id: ID): Player
